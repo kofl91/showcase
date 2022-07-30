@@ -8,7 +8,7 @@ Hi, I am Kim Oliver Fehrs. My passion is coding and in recent years I focus on i
 
 ## Application deployment
 
-### ArgoCD with Helm
+### ArgoCD <img src="https://avatars.githubusercontent.com/u/30269780?s=200&v=4" width="50">with Helm <img src="https://avatars.githubusercontent.com/u/15859888?s=200&v=4" width="50"> 
 
 ArgoCD is an OpenSource Project that is helping deploying to Kubernetes with a GitOps Mindset. The idea is simple, an application on the Kubernetes Cluster, checks out your git repository and compares the manifests in there with the ones on your Kubernetes Cluster. ArgoCD can then notify you of changed or failed applications and (if you let it) update the cluster to reflect your git repository. Additionally it can provide metrics and badges for your repository that represent and applications health on a higher abstraction level than pods or containers. The UI is another very helpful aspect of ArgoCD. By letting you see exactly what resources are created (or deleted) and with which other resources they interact, it adds a certain level of trust to a tool that takes over your entire deployment process. Its quite impresive to see ArgoCD visualize how an Ingress Resource forces the creation of a certificate resource that in turn creates a secret which is also mounted by the application itself (not saying thats good pattern). 
 
