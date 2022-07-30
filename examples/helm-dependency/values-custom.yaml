@@ -1,0 +1,2 @@
+helm-chartmuseum:
+  replicaCount: 2
