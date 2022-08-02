@@ -21,3 +21,9 @@ Helm dependencies allow you to reference other charts that need to be deployed a
 As you can see no real satisfying solution is available for helm and argocd, but help is on the way with the upcomming release of 2.5. Since the exact details fo the implementation are unclear until release, I will postpone writing about this.
 
 You can see examples of all three approaches in argocd/examples.
+
+## Dealing with secrets
+
+Neither Helm or ArgoCD provide first class support for secrets. That is where tools like AWS Secretsmanager or Hashicorp Vault come into play. One tool that is universialy applicable is the [external-secret-operator](https://external-secrets.io/v0.5.8/). It's a kubernetes operator that fetches secrets from various sources and creates Kubernetes Secrets for you. All you have to do is create a Kubernetes Resource to specify the source and the structure of the secret. These resources do not contain sensitve data and can be easily added to your git repository and therefore synced via ArgoCD without compromising your clusters security.
+
+Since its independent of specific vendors, you can use it for projects of any scale. In case you lack the resources to operate and maintain a vault cluster you can switch to gitlab variables for example or use the secret stores of the cloud provider of your choosing. I am working mostly in airgapped environmets, so cloud providers are usually not an option for me.
